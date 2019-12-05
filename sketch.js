@@ -35,18 +35,14 @@ export function draw() {
         // rect(275,300,1,1)
         // image(img, 0, 0)
         console.info(sensor[2])
-        if (sensor[2] > -45) {
-            translate(120, 135)
-            rotateAbout(a, img.width / 2, img.height / 2)
-            image(img, 0, 0)
-        }
-        else{
-        translate(625, 135)
+        // (sensor[2] > -45) {
+        let x = map(sensor[2],-90, 0, 625, 120)
+
+        translate(x, 135)
         rotateAbout(a, img.width / 2, img.height / 2)
         image(img, 0, 0)
         }
     }
-}
 
 function rotateAbout(angle, x, y) {
     translate(x, y);
