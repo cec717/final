@@ -30,12 +30,10 @@ export function draw() {
     // image(img, x, y)
     if (sensor !== null){
         let a = sensor[0]
-        rotateAbout(a,img.width+150,img.height+150)
-
+        translate(625,135)
+        rotateAbout(a,img.width/2,img.height/2)
         // rect(275,300,1,1)
-        image(img,625,135)
-        noFill()
-        rect(625,135,img.width,img.height)
+        image(img,0,0)
     }
 }
 
