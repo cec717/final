@@ -1,16 +1,16 @@
 import { onSensorData } from 'https://cdn.jsdelivr.net/npm/imu-tools@0/index.js'
- 
+
 onSensorData(handleSensorData)
 
 let sensor = null
 let first = false
-let img 
+let img
 let x = 0
 let y = 0
 
 // Code in this function is run once, when the sketch is started.
 export function setup() {
-    createCanvas(windowWidth-200, windowHeight)
+    createCanvas(windowWidth - 200, windowHeight)
     img = loadImage('cup3.png')
 }
 
@@ -19,7 +19,7 @@ export function setup() {
 // different frames, the sketch is an animation.
 export function draw() {
     angleMode(DEGREES)
-    let angle = frameCount/5;
+    let angle = frameCount / 5;
     clear();
     // rotateAbout(angle, 200, 100);
     // image(img, x, y)
@@ -28,26 +28,37 @@ export function draw() {
     const context = canvas.getContext('2d')
     context.clearRect(0, 0, canvas.width, canvas.height)
     // image(img, x, y)
-    if (sensor !== null){
+    if (sensor !== null) {
         let a = sensor[0]
-        translate(625,135)
-        rotateAbout(a,img.width/2,img.height/2)
+        // translate(625, 135)
+        // rotateAbout(a, img.width / 2, img.height / 2)
         // rect(275,300,1,1)
-        image(img,0,0)
+        // image(img, 0, 0)
+        console.info(sensor[2])
+        if (sensor[2] > -45) {
+            translate(120, 135)
+            rotateAbout(a, img.width / 2, img.height / 2)
+            image(img, 0, 0)
+        }
+        else{
+        translate(625, 135)
+        rotateAbout(a, img.width / 2, img.height / 2)
+        image(img, 0, 0)
+        }
     }
 }
 
-function rotateAbout(angle, x, y){
-    translate(x,y);
+function rotateAbout(angle, x, y) {
+    translate(x, y);
     rotate(angle);
-    translate(-x,-y);
+    translate(-x, -y);
 }
 
-function handleSensorData(data){
-    if (first === false){
+function handleSensorData(data) {
+    if (first === false) {
         console.info('sensor data:', data.euler)
     }
     first = true
     sensor = data.euler
-        
+
 }
