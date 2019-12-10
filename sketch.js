@@ -1,4 +1,4 @@
-import { onSensorData } from 'https://cdn.jsdelivr.net/npm/imu-tools@0/index.js'
+import { onSensorData } from 'https://cdn.jsdelivr.net/npm/imu-tools@0.0.7/index.js'
 
 onSensorData(handleSensorData)
 
@@ -6,12 +6,22 @@ let sensor = null
 let first = false
 let img
 let x = 0
-let y = 0
+let y = 200
+let button
+
 
 // Code in this function is run once, when the sketch is started.
 export function setup() {
     createCanvas(windowWidth - 200, windowHeight)
     img = loadImage('cup3.png')
+
+
+    button = createButton('H2O')
+    button.position(710,295)
+    button.mousePressed(pourwater)
+}
+function pourwater(){
+    waterOn = !waterOn;
 }
 
 // Code in this function is run once per frame. If it draws the same thing each
@@ -36,9 +46,9 @@ export function draw() {
         // image(img, 0, 0)
         console.info(sensor[2])
         // (sensor[2] > -45) {
-        let x = map(sensor[2],-90, 0, 625, 120)
+         x = map(sensor[2],-90, 0, 625, 210)
 
-        translate(x, 135)
+        translate(x, 200)
         rotateAbout(a, img.width / 2, img.height / 2)
         image(img, 0, 0)
         }
