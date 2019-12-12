@@ -120,17 +120,11 @@ export function draw() {
         rotateAbout(a, img.width / 2, img.height / 2)
         image(img, 0, 0)
     }
-    
-    
   
-    
-    
     
     //Rect
     noFill();
-   
-    
-    
+  
     prevx = x;
     prevy = y;
 }
