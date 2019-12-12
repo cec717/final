@@ -14,6 +14,10 @@ https://stackoverflow.com/questions/2142535/how-to-clear-the-canvas-for-redrawin
 
 https://freesound.org/people/Anton/sounds/21888/
 
+https://p5js.org/examples/simulate-particle-system.html
+
+Tristan helped with figuring out the water droplets as well as the rectangle and how the water enters from only one specific side of the rectangle.
+
 ## License
 
 MIT
