@@ -46,7 +46,7 @@ export function setup() {
 function pourwater(){
     waterOn = !waterOn;
     if(waterOn){
-      mySound.play();
+      mySound.loop();
     }
       else{
         mySound.stop();
@@ -68,9 +68,6 @@ export function draw() {
         console.info(sensor[2]);
        
          x = map(sensor[2],-90, 0, 625, 210);
-
-         //x = sensor[0];
-    //y = 200;
     
     dx = x - prevx;
     dy = y - prevy
