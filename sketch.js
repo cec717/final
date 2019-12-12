@@ -10,7 +10,7 @@ let y = 350;
 let button
 let system;
 let waterOn = false;
-let w = 60
+let w = 50
 let h = 100
 let prevx, prevy;
 let m12, b12, m13, b13, m24, b24, m34, b34;
@@ -20,7 +20,12 @@ let grav = 0.2;
 let a = 5;
 let dx;
 let dy;
+let mySound;
 
+
+export function preload(){
+  mySound = loadSound('water2.wav');
+}
 
 // Code in this function is run once, when the sketch is started.
 export function setup() {
@@ -37,26 +42,18 @@ export function setup() {
     button.position(710,295)
     button.mousePressed(pourwater)
 
-
-    // let cy = y+h/2-sin(a+initialangle)*sqrt(w*w/4+h*h/4);
-    // let cx = x+w/2-cos(a+initialangle)*sqrt(w*w/4+h*h/4);
-    
-    // let cy2 = y+h/2-sin(a+180-initialangle)*sqrt(w*w/4+h*h/4);
-    // let cx2 = x+w/2-cos(a+180-initialangle)*sqrt(w*w/4+h*h/4);
-    
-    // let cy3 = y+h/2-sin(a-initialangle)*sqrt(w*w/4+h*h/4);
-    // let cx3 = x+w/2-cos(a-initialangle)*sqrt(w*w/4+h*h/4);
-    
-    // let cy4 = y+h/2-sin(a+180+initialangle)*sqrt(w*w/4+h*h/4);
-    // let cx4 = x+w/2-cos(a+180+initialangle)*sqrt(w*w/4+h*h/4);
 }
 function pourwater(){
     waterOn = !waterOn;
+    if(waterOn){
+      mySound.play();
+    }
+      else{
+        mySound.stop();
+      }
 }
 
-// Code in this function is run once per frame. If it draws the same thing each
-// time, the sketch is a static image. If it draws something different on
-// different frames, the sketch is an animation.
+
 export function draw() {
     angleMode(DEGREES)
     let angle = frameCount / 5;
@@ -212,7 +209,7 @@ let Particle = function(position) {
     } 
       
     this.prevPos = this.position.copy();
-    //this.lifespan -= 2;
+   
   };
   
   // Method to display
@@ -220,12 +217,12 @@ let Particle = function(position) {
     
     fill(0,0,200, this.lifespan);
     ellipse(this.position.x, this.position.y, 12, 12);
-    //line(this.position.x, this.position.y, this.position.x+10*this.velocity.x, this.position.y+10*this.velocity.y);
+    
   };
   
   // Is the particle still useful?
   Particle.prototype.isDead = function(){
-    //return (!this.inCup && !this.inTub && this.position.y>height);
+  
   };
   
   let ParticleSystem = function(position) {
