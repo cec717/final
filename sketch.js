@@ -10,8 +10,8 @@ let y = 350;
 let button
 let system;
 let waterOn = false;
-let w = 50
-let h = 100
+let w = 30
+let h = 90
 let prevx, prevy;
 let m12, b12, m13, b13, m24, b24, m34, b34;
 let initialangle;
@@ -29,7 +29,7 @@ export function preload(){
 
 // Code in this function is run once, when the sketch is started.
 export function setup() {
-    createCanvas(windowWidth - 200, windowHeight)
+    createCanvas(windowWidth, windowHeight)
     img = loadImage('cup5.png')
     angleMode(DEGREES);
     initialangle = asin((h)/sqrt(w*w+h*h));
@@ -101,22 +101,22 @@ export function draw() {
     
   
     
-    fill(255);
-    fill(0,255,255);
-  ellipse(cx,cy, 20,20);
-  fill(0,255,0);
-  ellipse(cx2,cy2, 20,20);
-  fill(255,255,0);
-  ellipse(cx3,cy3, 20,20);
-  fill(255,0,0);
-  ellipse(cx4,cy4, 20,20);
+  //   fill(255);
+  //   fill(0,255,255);
+  // ellipse(cx,cy, 20,20);
+  // fill(0,255,0);
+  // ellipse(cx2,cy2, 20,20);
+  // fill(255,255,0);
+  // ellipse(cx3,cy3, 20,20);
+  // fill(255,0,0);
+  // ellipse(cx4,cy4, 20,20);
 
   if(frameCount%7 == 0 && waterOn) {
     system.addParticle();
     }
     system.run();
 
-        translate(x-10, y-20)
+        translate(x-24, y-15)
         rotateAbout(a, img.width / 2, img.height / 2)
         image(img, 0, 0)
     }
