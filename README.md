@@ -9,6 +9,10 @@ are defined in the sketch, must be prefixed by `export` in order to be visible
 to p5.js. For example, `export function setup()` and `export function draw()` in
 the starter code.
 
+## Instructions
+
+move the IMU around both by rotating the IMU horizontally, the flat side of the IMU facing the user's body, and rotating the IMU vertically, as if pushing the IMU in a forward motion. The horizontal rotation will rotate the cup, and the vertical rotation will move the cup back and forth across the screen. 
+
 ## Acknowledgement
 https://stackoverflow.com/questions/2142535/how-to-clear-the-canvas-for-redrawing
 
