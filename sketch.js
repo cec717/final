@@ -33,13 +33,13 @@ export function setup() {
     img = loadImage('cup5.png')
     angleMode(DEGREES);
     initialangle = asin((h)/sqrt(w*w+h*h));
-    system = new ParticleSystem(createVector(800, 285));
+    system = new ParticleSystem(createVector(885, 325));
      
     
     
 
     button = createButton('H2O')
-    button.position(710,295)
+    button.position(790,325)
     button.mousePressed(pourwater)
 
 }
